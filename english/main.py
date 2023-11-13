@@ -9,17 +9,6 @@ normalized_embeddings_file_path = '/Users/murilo/PycharmProjects/personal/embedd
 
 process = Process(alphabet_file_path, text_file_path)
 
-
-def save_embedding(embedding, file_path):
-    with open(file_path, 'wb') as file:
-        pickle.dump(embedding, file)
-
-
-def check_key(dic, key):
-    if key in dic.keys():
-        dic.pop(key)
-
-
 if not os.path.exists('normalized_embeddings.pkl'):
 
     # create embeddings
@@ -29,7 +18,6 @@ if not os.path.exists('normalized_embeddings.pkl'):
 
     # Save the normalized embeddings
     Process.save_embedding(normalized_embeddings, normalized_embeddings_file_path)
-    # save_embedding(normalized_embeddings, normalized_embeddings_file_path)
 
 else:
     # read previous pickle file
@@ -48,5 +36,4 @@ else:
 
     # Save the normalized embeddings
     Process.save_embedding(new_normalized_embeddings, normalized_embeddings_file_path)
-    # save_embedding(new_normalized_embeddings, normalized_embeddings_file_path)
 
